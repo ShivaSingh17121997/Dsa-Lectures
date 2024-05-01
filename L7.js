@@ -126,29 +126,78 @@
 //     arrr.push(arr[i][i])
 // }
 
+// // console.log(arrr)
+
+
+
+// let arr = [
+//     [11, 2, 3],
+//     [4, 55, 6],
+//     [7, 898, 9]
+// ]
+
+// // [11, 55, 898];
+// let arrr = []
+// let max = -Infinity;
+
+// for (let i = 0; i < arr.length; i++) {
+//     for (let j = 0; j < arr[i].length; j++) {
+//         if (arr[i][j] > max) {
+//             max = arr[i][j]
+//         }
+//     }
+//     arrr.push(max)
+// }
 // console.log(arrr)
 
+// find the sum of all the elements in a row
 
 
-let arr = [
-    [11, 2, 3],
-    [4, 55, 6],
-    [7, 898, 9]
-]
 
-// [11, 55, 898];
-let arrr = []
-let max = -Infinity;
+function prime(num) {
+    let isPrime = true;
 
-for (let i = 0; i < arr.length; i++) {
-    for (let j = 0; j < arr[i].length; j++) {
-        if (arr[i][j] > max) {
-            max = arr[i][j]
+    if(num <=1){
+        return console.log( "It is not a prime number")
+    } else if(num>1){
+        for(let i=2; i< num; i++ ){
+            if(num %i === 0){
+                isPrime = false
+                break;
+            }
         }
     }
-    arrr.push(max)
-}
-console.log(arrr)
 
-// find the sum of all the elements in a row
+    isPrime ? console.log(num, " is a prime number") : console.log(num, " is not a prime number")
+    
+
+}
+
+prime(-1)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
