@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Question-1</title>
+</head>
+<body>
+<script>
+    class Node {
+        constructor(data) {
+            this.data = data;
+            this.next = null;
+        }
+    }
+
+    function addNode() {
+        let head = new Node(1);
+        let currentValue = head;
+
+        for (let i = 2; i <= 5; i++) {
+            let newNode = new Node(i);
+            currentValue.next = newNode;
+            currentValue = newNode;
+        }
+
+        return head;
+    }
+
+    function print(head) {
+        let currentValue = head;
+        let result = "";
+        while (currentValue !== null) {
+            result += currentValue.data + " ";
+            currentValue = currentValue.next;
+        }
+        // result += "null";
+        console.log(result);
+    }
+
+    let head = addNode();
+    print(head);
+</script>
+</body>
+</html>
