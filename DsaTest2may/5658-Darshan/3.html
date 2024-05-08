@@ -1,0 +1,54 @@
+<script>
+
+class Node{
+    constructor(data){
+        this.data = data;
+        this.next = null
+    }
+}
+
+class Linklist{
+    constructor(data){
+        this.head = null;
+    }
+    addLast(data){
+        const newNode = new Node(data);
+        if(this.head === null){
+            this.head = newNode;
+        }
+        else{
+            let currnode = this.head;
+            while(currnode.next !== null){
+                currnode = currnode.next;
+            }
+            currnode.next =newNode;
+        }
+    }
+    palindrome(data){
+        let con1="";
+        let con2="";
+        let current = this.head;
+        while(current !== null){
+            con1 = con1 + current.data;
+            con2 = current.data + con2;
+            current = current.next;
+        }
+        return con1 == con2;
+    }   
+    print(){
+        let a = this.head;
+        while(a !== null){
+            console.log(a.data);
+            a = a.next;
+        }
+    }
+}
+const myList = new Linklist();
+myList.addLast(1);
+myList.addLast(2);
+myList.addLast(1);
+myList.print();
+
+console.log(myList.palindrome());
+
+</script>

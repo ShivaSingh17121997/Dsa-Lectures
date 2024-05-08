@@ -1,0 +1,71 @@
+<script>
+    class Node {
+        constructor(data) {
+            this.data = data;
+            this.next = null;
+        }
+    }
+
+    class Linklist {
+        constructor() {
+            this.head = null;
+        }
+
+        addData(data) {
+            const newNode = new Node(data);
+            if (this.head == null) {
+                this.head = newNode;
+            }
+            else {
+                let curVal = this.head;
+                while (curVal.next !== null) {
+                    curVal = curVal.next
+                }
+                curVal.next = newNode;
+            }
+        }
+
+        deleteFirst() {
+            if (this.head == null) {
+                console.log("List is Empty");
+            } else {
+                this.head = this.head.next;
+            }
+        }
+
+        deleteLast(){
+            if (this.head == null) {
+                console.log("Linklist is empty");
+                return;
+            }
+            else{
+                let last = this.head;
+                let prev = null;
+                while(last.next !== null){
+                    prev = last;
+                    last = last.next;
+                }
+                prev.next = null;
+            }
+        }
+        printData(){
+            let cur = Mylist.head;
+            while(cur !== null){
+                console.log(cur.data);
+                cur = cur.next;
+            }
+        }
+    }
+
+    const Mylist = new Linklist();
+    Mylist.addData(85);
+    Mylist.addData(65);
+    Mylist.addData(26);
+    Mylist.addData(10);
+    Mylist.addData(89);
+    Mylist.deleteFirst();
+    Mylist.deleteLast();
+    Mylist.printData();
+    
+    
+</script>

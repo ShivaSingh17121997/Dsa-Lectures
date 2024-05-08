@@ -1,0 +1,60 @@
+<script>
+
+    class Node{
+        constructor(data){
+            this.data = data;
+            this.next = null
+        }
+    }
+    
+    class Linklist{
+        constructor(data){
+            this.head = null;
+        }
+        addLast(data){
+            const newNode = new Node(data);
+            if(this.head === null){
+                this.head = newNode;
+            }
+            else{
+                let currnode = this.head;
+                while(currnode.next !== null){
+                    currnode = currnode.next;
+                }
+                currnode.next =newNode;
+            }
+        }
+
+        deletdata(){
+        if(this.head==null ){
+            return null;
+        }
+        let current = this.head;
+        while(current.next.next){
+            current = current.next;
+        }
+        current.next = null;
+        return this.head;
+    }   
+
+        print(){
+            let a = this.head;
+            while(a !== null){
+                console.log(a.data);
+                a = a.next;
+            }
+        }
+    }
+    const myList = new Linklist();
+    myList.addLast(1);
+    myList.addLast(2);
+    myList.addLast(3);
+    myList.addLast(4);
+    myList.addLast(5);
+    myList.addLast(6);
+
+    myList.deletdata();
+    myList.deletdata();
+    
+    myList.print();
+    </script>

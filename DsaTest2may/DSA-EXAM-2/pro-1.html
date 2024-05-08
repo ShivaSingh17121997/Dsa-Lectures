@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Linked-List</title>
+</head>
+<body>
+
+
+    <script>
+        class Node {
+            constructor(data) {
+                this.data = data;
+                this.next = null;
+            }
+        }
+        class LinkedList {
+            constructor() {
+                this.head = null;
+            }
+            adddata(data) {
+                const newnode = new Node(data);
+                let i = this.head;
+                if (i === null) {
+                    this.head = newnode;
+                }
+                else {
+                    while (i.next !== null) { 
+                        i = i.next;
+                    }
+                    i.next = newnode;
+                }
+            }
+            print() {
+                let i = this.head;
+                while (i !== null) {
+                    console.log(i.data);
+                    i=i.next;
+                }
+            }
+        }
+        let mylist = new LinkedList();
+        mylist.adddata(10);
+        mylist.adddata(20);
+        mylist.adddata(30);
+        mylist.adddata(40);
+        mylist.adddata(50);
+        mylist.print();
+    </script>
+</body>
+</html>

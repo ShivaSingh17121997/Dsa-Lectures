@@ -1,0 +1,86 @@
+<script>
+
+    class Node {
+        constructor(data) {
+            this.data = data;
+            this.next = null;
+        }
+    }
+
+    class LinkedList {
+        constructor() {
+            this.head = null
+        }
+        // ADD first data
+
+        AddFirstData(data) {
+            const newNode = new Node(data)
+            newNode.next = this.head;
+            this.head = newNode
+        }
+
+        //ADD last DATA
+
+        AddLastData(data) {
+            const newnode = new Node(data);
+            if (this.head == null) {
+                this.head = newnode;
+            }
+            else {
+                let currval = this.head;
+                while (currval.next !== null) {
+                    currval = currval.next
+                }
+                currval.next = newnode
+            }
+        }
+        //REMOVE TOP DATA
+
+        RemoveFirst() {
+            if (!this.head) {
+                return
+            }
+            this.head = this.head.next
+        }
+
+        //REMOVE LAST DATA
+
+        RemoveLast() {
+            if (!this.head) {
+                return;
+            }
+            if (!this.head.next) {
+                this.head = null;
+                return;
+            }
+            let currVal = this.head;
+            while (currVal.next.next) {
+                currVal = currVal.next;
+            }
+            currVal.next = null;
+        }
+
+
+        print() {
+
+            let curr = Mylist.head
+
+            while (curr !== null) {
+                console.log(curr.data)
+                curr = curr.next
+            }
+        }
+    }
+
+    const Mylist = new LinkedList();
+    Mylist.AddFirstData(15);
+    Mylist.AddFirstData(23);
+    Mylist.AddLastData(59);
+    Mylist.AddLastData(75);
+    Mylist.AddLastData(36);
+    Mylist.RemoveFirst();
+    Mylist.RemoveLast();
+    Mylist.print();
+
+
+</script>

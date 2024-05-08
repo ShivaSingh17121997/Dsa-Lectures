@@ -1,0 +1,43 @@
+<script>
+    <!-- QUS-1 Create a node add 5 nodes  -->
+    class Node {
+        constructor(data) {
+            this.data = data;
+            this.next = null
+        }
+    }
+
+    class Linklist {
+        constructor(data) {
+            this.head = null;
+        }
+        AddData(data) {
+            const newNode = new Node(data);
+            if (this.head === null) {
+                this.head = newNode;
+            }
+            else {
+                let current = this.head;
+                while (current.next !== null) {
+                    current = current.next;
+                }
+                current.next = newNode;
+            }
+        }
+
+        Print() {
+            let z = this.head;
+            while (z !== null) {
+                console.log(z.data);
+                z = z.next;
+            }
+        }
+    }
+    const myList = new Linklist();
+    myList.AddData("Hi Sir");
+    myList.AddData("My");
+    myList.AddData("Name");
+    myList.AddData("Is");
+    myList.AddData("Hardik");
+    myList.Print();
+</script>

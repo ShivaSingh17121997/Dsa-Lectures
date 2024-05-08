@@ -1,0 +1,61 @@
+<script>
+    class Node {
+        constructor(data) {
+            this.data = data;
+            this.next = null;
+        }
+    }
+
+    function addNodes() {
+        let head = new Node(1);
+        let current = head;
+
+        for (let i = 2; i <= 5; i++) {
+            let newNode = new Node(i);
+            current.next = newNode;
+            current = newNode;
+        }
+        return head;
+    }
+
+    function dele(head) {
+        if (!head || !head.next) {
+            return null;
+        }
+
+        let current = head;
+        let previous = null;
+        while (current.next) {
+            previous = current;
+            current = current.next;
+        }
+
+        if (previous) {
+            previous.next = null;
+        } else {
+            head = null;
+        }
+
+        return head;
+    }
+    function print(head) {
+        let current = head;
+        let result = "";
+        while (current !== null) {
+            result += current.data + " ";
+            current = current.next;
+        }
+        result += "null";
+        console.log(result);
+    }
+
+    // Add nodes and print the linked list
+    let head = addNodes();
+    console.log("Original Linked List:");
+    print(head);
+
+    // Delete a node from the end
+    head = dele(head);
+    console.log("Updated Linked List after deleting a node from the end:");
+    print(head);
+</script>

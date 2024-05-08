@@ -1,0 +1,93 @@
+<script>
+    class Node{
+        constructor(data){
+             this.data =data;
+             this.next=null;
+        }
+    }
+    class LinkedList {
+    constructor() {
+        this.head = null;
+    }
+    // Add Data in Linkedlist
+    adddata(data) {
+        const newNode = new Node(data);
+        if (this.head===null) {
+            this.head = newNode;
+        } else {
+            let current = this.head;
+            while (current.next!=null) {
+                current = current.next;
+            }
+            current.next = newNode;
+        }
+    }
+
+    //Display All Data Of Linkedlist
+
+    DisplayaData(){
+        let current = mylist.head;
+        while (current!=null) {
+            console.log(current.data);
+            current = current.next;
+          }
+    }
+
+    // Delete a Node From End 
+  
+    deleteNodeFromEnd() {
+        if (!this.head) {
+            return;
+        }
+          if (!this.head.next) {
+            this.head = null;
+            return;
+        }
+            let current = this.head;
+           
+            while (current.next.next) {
+                current = current.next;
+            }
+            current.next = null;
+           
+        }
+    
+     // check palindrom 
+
+     isPalindrome() {
+        let str1 = "";
+            let str2 = "";
+
+            let currValue = this.head;
+            while (currValue !== null) {
+                str1 = str1+currValue.data;
+                str2 = currValue.data + str2;
+                currValue = currValue.next;
+            }
+            return str1 == str2;
+    }
+}
+
+    const mylist= new LinkedList;
+    mylist.adddata(3);
+    mylist.adddata(5);
+    mylist.adddata(4);
+    mylist.adddata(3);
+    mylist.adddata(1);
+
+    // Display function call and print all data
+    console.log("Linkedlist data");
+    mylist.DisplayaData();
+  
+    // Delete  last node and display data
+    console.log("Delete  last node and display data");
+     mylist.deleteNodeFromEnd();
+     mylist.DisplayaData();
+
+
+     // check palindrom
+
+     console.log("\nIs Palindrome:", mylist.isPalindrome());
+
+
+</script>

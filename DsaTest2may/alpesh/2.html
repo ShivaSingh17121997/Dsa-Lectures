@@ -1,0 +1,75 @@
+<script>
+    class Node{
+        constructor(data){
+            this.data = data;
+            this.next = null;
+        }
+    }
+    class LinkedList{
+        constructor(){
+            this.head = null;
+        }
+        insert(data){ // insert data into linked list
+            let newData = new Node(data);
+            if(this.head === null){
+                this.head = newData;
+            }
+            else{
+                let i = this.head;
+                while(i.next!== null){
+                    i = i.next;
+                }
+                i.next = newData;
+            }
+        }
+        display(){ // print all nodes in the linked list
+            let str = ""
+            if(this.head === null){
+                console.log("List is empty");
+            }
+            else{
+                let i = this.head;
+                while(i!== null){
+                    str += i.data + ", ";
+                    // console.log(i.data);
+                    i = i.next;
+                }
+                console.log(str);
+            }
+        }
+        deleteFromEnd(){ // delete from the end of the linked list
+            if(this.head === null){
+                console.log("List is empty");
+            }
+            else{
+                let i = this.head;
+                while(i.next.next!== null){
+                    i = i.next;
+                }
+                i.next = null;
+            }
+        }
+        deleteFromFront(){ // delete from front of linked list
+            if(this.head===null){
+                console.log("List is empty");
+            }
+            else{
+                let i = this.head;
+                this.head = this.head.next;
+                i = null;
+            }
+        }
+    }
+    const mylist = new LinkedList;
+    mylist.insert(1); //insert head into linkedlist
+    mylist.insert(2); // insert 1st tail into linkedlist
+    mylist.insert(3); // insert 2nd tail into linkedlist
+    mylist.insert(4); // insert 3rd tail into linkedlist
+    mylist.insert(5); // insert 4th tail into linkedlist
+    mylist.insert(6); // insert 5th tail into linkedlist
+    mylist.display(); // display all node
+    mylist.deleteFromEnd(); // delete last node
+    mylist.display(); // display after deleting last node
+    mylist.deleteFromFront(); // delete from front
+    mylist.display(); // display after deleting front node
+</script>

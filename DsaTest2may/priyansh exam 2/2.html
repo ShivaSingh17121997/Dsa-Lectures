@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Delete node </title>
+</head>
+<body>
+    <script>
+class Node {
+    constructor(data) {
+        this.data = data; 
+        this.next = null; 
+    }
+}
+
+
+class LinkedList {
+    constructor() {
+        this.head = null; 
+    }
+
+   
+    append(data) {
+        const newNode = new Node(data);
+        if (!this.head) {
+            this.head = newNode; 
+        } else {
+            let current = this.head;
+            while (current.next) {
+                current = current.next; 
+            }
+            current.next = newNode; 
+        }
+    }
+    deleteFromEndAndPrint() {
+        if (!this.head) {
+            console.log("List is empty.");
+            return;
+        }
+
+        let current = this.head;
+        let prev = null;
+        while (current.next) {
+            prev = current;
+            current = current.next;
+        }
+        if (prev) {
+            prev.next = null;
+        } else {
+            this.head = null; 
+        }
+        console.log("Updated List:");
+        current = this.head;
+        while (current) {
+            console.log(current.data);
+            current = current.next;
+        }
+    }
+}
+const linkedList = new LinkedList();
+linkedList.append(1);
+linkedList.append(2);
+linkedList.append(3);
+linkedList.append(4);
+linkedList.append(5);
+linkedList.deleteFromEndAndPrint();
+
+    </script>
+</body>
+</html>

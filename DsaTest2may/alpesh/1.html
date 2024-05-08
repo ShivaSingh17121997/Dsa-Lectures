@@ -1,0 +1,46 @@
+<script>
+    class Node{ 
+        constructor(data){
+            this.data = data;
+            this.next = null;
+        }
+    }
+    class LinkedList{
+        constructor(){
+            this.head = null;
+        }
+        insert(data){ // insert data into linked list
+            let newData = new Node(data);
+            if(this.head === null){
+                this.head = newData;
+            }
+            else{ 
+                let i = this.head;
+                while(i.next!== null){
+                    i = i.next;
+                }
+                i.next = newData;
+            }
+        }
+        display(){ // display linked list
+            if(this.head === null){
+                console.log("List is empty");
+            }
+            else{
+                let i = this.head;
+                while(i!== null){
+                    console.log(i.data);
+                    i = i.next;
+                }
+            }
+        }
+    }
+    const mylist = new LinkedList;
+    mylist.insert(1); // insert 1st node
+    mylist.insert(2); // insert 2nd node
+    mylist.insert(3); // insert 3rd node
+    mylist.insert(4); // insert 4th node
+    mylist.insert(5); // insert 5th node
+    mylist.insert(6); // insert 6th node
+    mylist.display(); // print all node
+</script>

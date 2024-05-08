@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Delete Without Head</title>
+</head>
+<body>
+    <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Delete Without Head</title>
+  <style>
+    /* Optional CSS for code styling */
+    pre {
+      background-color: #f4f4f4;
+      padding: 10px;
+      border-radius: 5px;
+      overflow-x: auto;
+    }
+    .code {
+        background-color: #f7f7f7;
+        border-radius: 5px;
+        padding: 20px;
+        overflow-x: auto;
+    }
+  </style>
+</head>
+<body>
+    <h1>Delete Without Head</h1>
+
+<pre>
+    <div class="code">
+        /**
+ * Definition for singly-linked list.
+ * public class ListNode {
+ *     int val;
+ *     ListNode next;
+ *     ListNode(int x) { val = x; }
+ * }
+ */
+class Solution {
+  public void deleteNode(ListNode node) {
+    node.val = node.next.val;
+    node.next = node.next.next;
+  }
+}
+</div>
+</pre>
+
+</body>
+</html>
+
+</body>
+</html>

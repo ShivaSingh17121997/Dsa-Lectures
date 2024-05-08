@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+     
+class ListNode {
+    constructor(val) {
+        this.val = val;
+        this.next = null;
+    }
+}
+
+function isPalindrome(data) {
+    if (!data || !data.next) {
+        return true;
+    }
+
+    let slow = data;
+    let fast = data;
+    while (fast && fast.next) {
+        slow = slow.next;
+        fast = fast.next.next;
+    }
+
+    let prev = null;
+    let current = slow;
+    while (current) {
+        const nextNode = current.next;
+        current.next = prev;
+        prev = current;
+        current = nextNode;
+    }
+
+    let firstnode = data;
+    let secondnode = prev;
+    while (secondnode) {
+        if (firstnode.val !== secondnode.val) {
+            return false; 
+        }
+        firstnode = firstnode.next;
+        secondnode = secondnode.next;
+    }
+
+    return true; 
+}
+
+// Ex=> 1,2,2,1
+let head1 = new ListNode(1);
+head1.next = new ListNode(2);
+head1.next.next = new ListNode(2);
+head1.next.next.next = new ListNode(1);
+console.log(isPalindrome(head1)); 
+
+// Ex=> 1,2
+let head2 = new ListNode(1);
+head2.next = new ListNode(2);
+console.log(isPalindrome(head2)); 
+
+    </script>
+</body>
+</html>

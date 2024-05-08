@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Linked-List</title>
+</head>
+
+<body>
+
+
+    <script>
+        class Node {
+            constructor(data) {
+                this.data = data;
+                this.next = null;
+            }
+        }
+        class LinkedList {
+            constructor() {
+                this.head = null;
+            }
+            adddata(data) {
+                const newnode = new Node(data);
+                let i = this.head;
+                if (i === null) {
+                    this.head = newnode;
+                }
+                else {
+                    while (i.next !== null) { 
+                        i = i.next;
+                    }
+                    i.next = newnode;
+                }
+            }
+            deleteFront(){
+                if(this.head===null){
+                    console.log("Linked-List is Empty..!")
+                }
+                else{
+                    this.head=this.head.next;
+                }
+            }
+            deleteEnd(){
+                if(this.head===null){
+                    console.log("Linked-List is Empty..!")
+                }
+                else{
+                    let prev = null;
+                    let i=this.head;
+                    while(i.next!==null){
+                        prev=i;
+                        i=i.next;
+                    }
+                    prev.next=null;
+                }
+            }
+            print() {
+                let i = this.head;
+                while (i !== null) {
+                    console.log(i.data);// node print krne ke liye
+                    i=i.next;
+                }
+            }
+        }
+        let mylist = new LinkedList();
+        mylist.adddata(100);
+        mylist.adddata(200);
+        mylist.adddata(300);
+        mylist.adddata(400);
+        mylist.adddata(500);
+        mylist.adddata(600);
+        mylist.adddata(700);
+        mylist.adddata(800);
+        mylist.adddata(900);
+        mylist.deleteFront();
+        mylist.deleteEnd();
+        mylist.print();
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,35 @@
+<script>
+    class Node {
+        constructor(data) {
+            this.data = data;
+            this.next = null;
+        }
+    }
+
+    function addNodes() {
+        let head = new Node(1);
+        let current = head;
+
+        for (let i = 2; i <= 5; i++) {
+            let newNode = new Node(i);
+            current.next = newNode;
+            current = newNode;
+        }
+
+        return head;
+    }
+
+    function print(head) {
+        let current = head;
+        let result = "";
+        while (current !== null) {
+            result += current.data + " ";
+            current = current.next;
+        }
+        // result += "null";
+        console.log(result);
+    }
+
+    let head = addNodes();
+    print(head);
+</script>
