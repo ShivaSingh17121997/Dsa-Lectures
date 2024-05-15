@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Page Title</title>
+</head>
+
+<body>
+
+
+    <script>
+        let arr = [4, 43, 44, 54, 21, 43, 83];// array
+        function bubblesort(arr) {
+            for (let i = 0; i < arr.length; i++) {
+                for (let j = 0; j < arr.length; j++) {
+                    if (arr[j] > arr[j + 1]) {
+                        let temp = arr[j]; // declare variable and store arr[j]
+                        arr[j] = arr[j + 1];
+                        arr[j + 1] = temp; // store value in temp variable
+                    }
+                }
+            }
+            return arr;
+        }
+        let bubble = bubblesort(arr); // shorting the value
+        console.log("sorting the array :- " + bubble)
+    </script>
+</body>
+
+</html>

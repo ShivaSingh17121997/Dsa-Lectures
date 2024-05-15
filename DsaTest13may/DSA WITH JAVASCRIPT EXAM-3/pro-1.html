@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Page Title</title>
+</head>
+
+<body>
+
+
+    <script>
+        let arr = [3, 2, 8, 4, 56, 6, 7];// array
+        function bubble(arr) {
+            for (let i = 0; i < arr.length; i++) {
+                for (let j = 0; j < arr.length; j++) {
+                    if (arr[j] > arr[j + 1]) {// sorting array
+                        let temp = arr[j];
+                        arr[j] = arr[j + 1];
+                        arr[j + 1] = temp;
+                    }
+                }
+            }
+            return arr;
+        }
+        let sort = bubble(arr);// shorted array
+        console.log(sort);
+
+        let target = 7;// target of the array
+        function binary(sort, target) {
+            let left = 0; // index of first elemnet
+            let right = sort.length - 1; // index of last elemnet
+            while (left <= right) {
+                let mid = Math.floor((left + right) / 2); // find the mid value
+                if (sort[mid] === target) { // compare the target and mid value
+                    return mid;
+                }
+                else if (sort[mid] < target) {
+                    left = mid + 1;// index of fisrt element + 1 intialize the value
+                }
+                else {
+                    right = mid - 1;//index of last element - 1 intialize the value
+                }
+            }
+            return -1; // false value
+        }
+        let binaryarray = binary(sort, target);
+        console.log("Binary search with bubble sorting :- " + binaryarray);
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bubble Sort</title>
+</head>
+
+<body>
+    <h1 align="center">Sort the Array</h1>
+    <h2 align="center" id="res"></h2>
+    <script>
+        let arr = [4, 43, 44, 54, 21, 43, 83];
+        function bubbleSort(arr) { // bubble sort function
+            for (let i = 0; i < arr.length; i++) {
+                for (let j = 0; j < arr.length - i; j++) {
+                    if (arr[j] > arr[j + 1]) {
+                        let a = arr[j] // swaping the values
+                        arr[j] = arr[j + 1] // swaping the values
+                        arr[j + 1] = a; // swaping the values
+                    }
+                }
+            }
+            return arr; // return array
+        }
+        let sortedArr = bubbleSort(arr)
+        console.log(sortedArr);
+        document.getElementById("res").innerHTML += sortedArr; // display the output
+    </script>
+</body>
+
+</html>

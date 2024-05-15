@@ -1,0 +1,35 @@
+<script>
+    //  (1)Find the target value with the help of binary search array is not soted
+    //     Let arr = [3,2,8,4,56,6,7] target value = 7
+
+
+
+        let arr = [3, 2, 8, 4, 56, 6, 7];
+
+        // sorted arr
+        let sortedArr = arr.sort((a, b) => a - b);
+        console.log("sorted arr => " + sortedArr);
+
+        function binarySearch(sortedArr, target) {
+            let left = 0;
+            let right = sortedArr.length - 1;
+
+            while (left <= right) {
+                let mid = Math.floor((left + right) / 2);
+                if (sortedArr[mid] === target) {
+                    return [sortedArr[mid], mid];
+                } else if (sortedArr[mid] < target) {
+                    left = mid + 1;
+                } else {
+                    right = mid - 1;
+                }
+            }
+            return -1;
+        }
+
+        let a = binarySearch(sortedArr, 7);
+        console.log(a);// output is = 6
+
+
+
+</script>

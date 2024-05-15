@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Question-1</title>
+</head>
+
+<body>
+    <script>
+        let arr = [3, 2, 8, 4, 56, 6, 7];
+        // Sorted Array
+        let SortedArr = arr.sort((a, b) => a - b);
+        console.log(SortedArr);
+        let target = 7;
+
+        function BinarySearch(SortedArr, target) {
+            let left = 0;
+            let right = SortedArr.length - 1;
+
+            while (left <= right) {
+                let mid = Math.floor((left + right) / 2);
+
+                if (SortedArr[mid] === target) {
+                    return [SortedArr[mid], mid]
+                } else if (SortedArr[mid] < target) {
+                    left = mid + 1;
+                } else {
+                    right = mid - 1;
+                }
+            }
+            return -1
+
+        }
+        let Result = BinarySearch(SortedArr, target);
+        console.log(Result);
+    </script>
+</body>
+
+</html>

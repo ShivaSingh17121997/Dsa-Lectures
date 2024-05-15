@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Page Title</title>
+</head>
+
+<body>
+
+
+    <script>
+        let arr = [5, 6, 7, 8, 1, 2, 3];
+        let target = 8;
+        function rotated(arr, target) {
+            let left = 0;//index of first element
+            let right = arr.length - 1; // index of last elemennt
+            while (left <= right) {
+                let mid = Math.floor((left + right) / 2);// declare the mid value
+                if (arr[mid] === target) { // compare target and mid value
+                    return mid;
+                }
+                if (arr[left] <= arr[mid]) {
+                    if (arr[left] <= target && target < arr[mid]) {
+                        right = mid - 1; // index of last element - 1 intialize the value
+                    }
+                    else {
+                        left = mid + 1; //index of fisrt element + 1 intialize the value
+                    }
+                }
+                else {
+                    if (arr[mid] <= target && target <= arr[right]) {
+                        left = mid + 1; // index of fisrt element + 1 intialize the value
+                    }
+                    else {
+                        right = mid - 1; // index of last element - 1 intialize the value
+                    }
+                }
+            }
+            return -1; // false value
+        }
+        let rotatedarray = rotated(arr, target);
+        console.log("Rotated array with binary search :- " + rotatedarray);
+    </script>
+</body>
+
+</html>

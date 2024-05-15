@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> 2nd Highest Number</title>
+</head>
+<body>
+    <script>
+                    function findSecondHighest(arr) {
+            let firstMax = -Infinity; // Initialize the first maximum number to negative infinity
+            let secondMax = -Infinity; // Initialize the second maximum number to negative infinity
+
+            for (let i = 0; i < arr.length; i++) { // Loop through the array
+                if (!isNaN(arr[i])) { // Check if the current element is a number (not NaN)
+                    if (arr[i] > firstMax) { // If current element is greater than the first maximum
+                        secondMax = firstMax; // Move the current first maximum to second maximum
+                        firstMax = arr[i]; // Update the first maximum
+                    } else if (arr[i] > secondMax && arr[i] !== firstMax) { // If current element is greater than second maximum and not equal to first maximum
+                        secondMax = arr[i]; // Update the second maximum
+                    }
+                }
+            }
+
+            return secondMax; // Return the second maximum number
+        }
+
+        let arr = [, 33, 43, 54, 65, 23, 232, 43]; // Given array with undefined element at the beginning
+        let secondHighest = findSecondHighest(arr); // Call the function to find the second highest number
+        console.log("Second highest number:", secondHighest); // Print the second highest number
+
+
+
+    </script>
+</body>
+</html>

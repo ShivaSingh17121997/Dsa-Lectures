@@ -1,0 +1,25 @@
+<script>
+
+    // (4)Sort the array using any sorting algorithm  (bubble sort, quick sort, merge sort , selection sort ect)
+    //   Let arr [4,43,44,54,21,43,83 ]
+    
+    
+    let arr = [2, 3, 8, 2, 6, 7, 0, -4];
+    
+    function bubbleSort(arr) {
+    
+        for (let i = 0; i < arr.length; i++) {
+            for (let j = 0; j < arr.length - i; j++) {
+                if (arr[j] > arr[j + 1]) {
+                    let temp = arr[j];
+                    arr[j] = arr[j + 1];
+                    arr[j + 1] = temp;
+                }
+            }
+        }
+        return arr
+    }
+    let an = bubbleSort(arr)
+    console.log(an) //output -4 0 2 2 3 6 7 8
+    
+    </script>

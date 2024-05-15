@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Question-3</title>
+</head>
+
+<body>
+    <script>
+        let arr = [3, 2, 8, 4, 56, 6, 7];
+        let SortedArr = arr.sort((a, b) => a - b);
+        console.log(SortedArr);
+        let target = 8;
+        function search(nums, target) {
+            // index = 0 
+            let left = 0;// 3
+            let right = nums.length - 1;  // 
+
+            while (left <= right) {
+                let mid = Math.floor((left + right) / 2);
+                // 4       ===    8
+                if (nums[mid] === target) {
+                    return mid;  // i =  
+                }
+                if (nums[left] <= nums[mid]) {
+                    // Check The Condition           
+                    if (nums[left] <= target && target < nums[mid]) {
+                        right = mid - 1;  //
+                    } else {
+                        left = mid + 1;
+                    }
+                } else {
+                    // Check The Condition
+                    if (nums[mid] < target && target <= nums[right]) {
+                        left = mid + 1;
+                    } else {
+                        right = mid - 1;
+                    }
+                }
+            }
+
+            return -1;
+        }
+
+
+
+        let Result = search(SortedArr, target); // Output: 8 (index of target in nums)
+        console.log(Result);
+
+    </script>
+</body>
+
+</html>

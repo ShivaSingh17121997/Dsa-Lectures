@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Target Value</title>
+</head>
+<body>
+    <script>
+                // Bubble sort function to sort the array in ascending order
+        function bubbleSort(arr) {
+            const len = arr.length;
+
+            // Outer loop for passes
+            for (let i = 0; i < len - 1; i++) {
+                // Inner loop for comparisons
+                for (let j = 0; j < len - 1 - i; j++) {
+                    // If current element is greater than next element, swap them
+                    if (arr[j] > arr[j + 1]) {
+                        // Swap elements using a temporary variable
+                        let temp = arr[j];
+                        arr[j] = arr[j + 1];
+                        arr[j + 1] = temp;
+                    }
+                }
+            }
+            return arr; // Return the sorted array
+        }
+
+        // Binary search function to find the target value in a sorted array
+        function binarySearch(arr, target) {
+            let low = 0;
+            let high = arr.length - 1;
+
+            while (low <= high) {
+                let mid = Math.floor((low + high) / 2);
+
+                if (arr[mid] === target) {
+                    return mid; // Target found
+                } else if (arr[mid] < target) {
+                    low = mid + 1; // Update low index
+                } else {
+                    high = mid - 1; // Update high index
+                }
+            }
+
+            return -1; // Target not found
+        }
+
+        let arr = [3, 2, 8, 4, 56, 6, 7]; // Given array
+        let target = 7; // Target value to search
+
+        console.log("Original array:", arr); // Print the original array
+        arr = bubbleSort(arr); // Call the bubble sort function to sort the array
+        console.log("Sorted array:", arr); // Print the sorted array
+
+        let index = binarySearch(arr, target); // Call the binary search function to find the target value
+
+        if (index !== -1) {
+            console.log(`Target ${target} found at index ${index}.`); // Print message if target found
+        } else {
+            console.log(`Target ${target} not found in the array.`); // Print message if target not found
+        }
+
+    </script>
+</body>
+</html>

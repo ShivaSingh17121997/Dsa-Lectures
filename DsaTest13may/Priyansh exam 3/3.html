@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Find Target In Rotated Array</title>
+</head>
+<body>
+    <script>
+        // Function to find target value in a rotated sorted array using binary search
+        function findTargetInRotatedArray(arr, target) {
+            let low = 0;
+            let high = arr.length - 1;
+
+            while (low <= high) {
+                let mid = Math.floor((low + high) / 2);
+
+                if (arr[mid] === target) {
+                    return mid; // Target found
+                }
+
+                // Check if the left half is sorted
+                if (arr[low] <= arr[mid]) {
+                    // Check if the target lies within the sorted half
+                    if (target >= arr[low] && target < arr[mid]) {
+                        high = mid - 1; // Update the high index
+                    } else {
+                        low = mid + 1; // Update the low index
+                    }
+                } else {
+                    // The right half is sorted
+                    // Check if the target lies within the sorted half
+                    if (target > arr[mid] && target <= arr[high]) {
+                        low = mid + 1; // Update the low index
+                    } else {
+                        high = mid - 1; // Update the high index
+                    }
+                }
+            }
+
+            return -1; // Target not found
+        }
+
+        let arr = [5, 6, 7, 8, 1, 2, 3]; // Given rotated sorted array
+        let target = 8; // Target value to search
+        let index = findTargetInRotatedArray(arr, target); // Call function to find target
+
+        if (index !== -1) {
+            console.log(`Target ${target} found at index ${index}.`); // Print message if target found
+        } else {
+            console.log(`Target ${target} not found in the array.`); // Print message if target not found
+        }
+    </script>
+</body>
+</html>

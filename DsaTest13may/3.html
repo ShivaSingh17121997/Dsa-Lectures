@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rotated Binary Search</title>
+</head>
+
+<body>
+    <h1 align="center">Rotated Array</h1>
+    <h2 align="center" id="res"></h2>
+    <script>
+        let arr = [5, 6, 7, 8, 1, 2, 3]; // array
+        let target = 8; // target
+
+        function BinarySearch(sortedArr, target) { // Binary search function
+            let left = 0;    // left index
+            let right = sortedArr.length - 1;  // right index
+            while (left <= right) {
+                let mid = Math.floor((left + right) / 2); // mid value
+                if (sortedArr[mid] == target) { // is Mid is = to target ?
+                    return mid; // return mid value
+                }
+                else if (sortedArr[left] > sortedArr[mid]) {
+                    if (sortedArr[left] <= target && target < sortedArr[mid]) {
+                        right = mid - 1; // decrease right index
+                    }
+                    else {
+                        left = mid + 1; // increase left index 
+                    }
+                }
+                else {
+                    if (sortedArr[right] > target && target >= sortedArr[mid]) {
+                        left = mid + 1; // increase left index 
+                    }
+                    else {
+                        right = mid - 1;  // decrease right index
+                    }
+                }
+            }
+        }
+        let Binary = BinarySearch(arr, target);
+        console.log(Binary)
+        document.getElementById("res").innerHTML = Binary;
+    </script>
+</body>
+
+</html>

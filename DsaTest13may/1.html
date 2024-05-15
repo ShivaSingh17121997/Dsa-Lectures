@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Binary Search</title>
+</head>
+<body>
+    <h1 align="center">Find the Target Value of non Sorted Array</h1> 
+    <h2 align="center" id="res"></h2> 
+    <script>
+        let arr = [3,2,8,4,56,6,7]; // array
+        let target = 7; // target
+
+        function bubbleSort(arr) { // bubble sort function
+            for(let i = 0; i < arr.length; i++) {
+                for(let j = 0; j < arr.length-i; j++) {
+                    if(arr[j] > arr[j+1]) { // comparing one index to there one plus index
+                        let a = arr[j]  // swaping the values
+                        arr[j] = arr[j+1] // swaping the values
+                        arr[j+1] = a; // swaping the values
+                    }
+                }
+            }
+            return arr;
+        }
+
+        let sortedArr = bubbleSort(arr);
+        console.log(sortedArr); 
+
+        function BinarySearch(sortedArr, target) { // Binary search function
+            let left = 0;    // left index
+            let right = sortedArr.length - 1;  // right index
+            while (left <= right) { 
+                let mid = Math.floor((left + right) / 2); // mid value
+                if(sortedArr[mid]==target){ // is Mid is = to target ?
+                    return mid;
+                }
+                else if(sortedArr[mid]<target){ // if not Mid is > than target
+                    left = mid + 1;
+                }
+                else{
+                    right = mid - 1; // if not Mid is < than target
+                }
+            }
+        }
+        let Binary = BinarySearch(sortedArr, target);
+        console.log(Binary)
+        document.getElementById("res").innerHTML = (Binary);
+    </script>
+</body>
+</html>

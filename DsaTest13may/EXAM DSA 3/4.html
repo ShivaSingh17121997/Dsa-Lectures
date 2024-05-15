@@ -1,0 +1,21 @@
+<script>
+    let arr = [4,43,44,54,21,43,83]; // Declare the array
+
+    // mede the function and sort the array using bubble sort method
+       function sort (arr){
+            for(let i=0;i<arr.length;i++){
+                for(let j=0;j<arr.length-i;j++){
+                   if(arr[j]>arr[j+1]){
+                       let temp=arr[j];
+                       arr[j]=arr[j+1];
+                       arr[j+1]=temp; 
+                   }
+                }
+            }
+            return arr; // return sorted array
+        }
+         // function calling
+        let a=sort(arr);
+        //print sorted array
+        console.log("Sorted array",a);
+</script>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Page Title</title>
+</head>
+
+<body>
+
+    <script>
+        let arr = [33, 43, 54, 65, 23, 232, 43]; // array
+        function bubble(arr) {
+            for (let i = 0; i < arr.length; i++) {
+                for (let j = 0; j < arr.length; j++) {
+                    if (arr[j] > arr[j + 1]) {
+                        let temp = arr[j]; // declare variable and store arr[j]
+                        arr[j] = arr[j + 1];
+                        arr[j + 1] = temp; // store value in temp varible
+                    }
+                }
+            }
+            return arr
+        }
+        let bubblesort = bubble(arr); // shorted array
+        console.log(bubblesort);
+
+        let max = -Infinity;
+        for (let i = 0; i < bubblesort.length - 1; i++) {
+            if (arr[i] > max) {
+                max = arr[i]; // arr[i] store max variable
+            }
+        }
+        console.log("Second max value :- "+max);
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<script>
+
+
+
+    // let obj = { a: 1 
+
+    let obj = { name: "ram" }
+    let ravan = { name: "ravan" }
+    let ws = new WeakSet()
+
+    ws.add(obj)
+    ws.add(ravan)
+    console.log(ws.delete(ravan))
+
+    console.log(ws.has(obj))
+
+    console.log(ws)
+
+
+
+    // ws.add(obj)
+    // ws.has()
+    // console.log(ws)
+
+    let visitedSet = new WeakSet();
+
+    let john = { name: "John" };
+    let pete = { name: "Pete" };
+    let mary = { name: "Mary" };
+
+    visitedSet.add(john); // John visited us
+    visitedSet.add(pete); // Then Pete
+    visitedSet.add(john); // John again
+
+    // visitedSet has 2 users now
+    console.log(visitedSet)
+
+    // // check if John visited?
+    // alert(visitedSet.has(john)); // true
+
+    // // check if Mary visited?
+    // alert(visitedSet.has(mary)); // false
+
+    // john = null;
+</script>
+
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sorting The Array</title>
+</head>
+<body>
+    <script>
+                function bubbleSort(arr) {
+            const len = arr.length;
+
+            // Outer loop for passes
+            for (let i = 0; i < len - 1; i++) {
+                // Inner loop for comparisons
+                for (let j = 0; j < len - 1 - i; j++) {
+                    // If current element is greater than next element, swap them
+                    if (arr[j] > arr[j + 1]) {
+                        // Swap elements using a temporary variable
+                        let temp = arr[j];
+                        arr[j] = arr[j + 1];
+                        arr[j + 1] = temp;
+                    }
+                }
+            }
+            return arr; // Return the sorted array
+        }
+
+        let arr = [4, 43, 44, 54, 21, 43, 83]; // Given array
+        console.log("Original array:", arr); // Print the original array
+        arr = bubbleSort(arr); // Call the bubble sort function
+        console.log("Sorted array:", arr); // Print the sorted array
+    </script>
+</body>
+</html>

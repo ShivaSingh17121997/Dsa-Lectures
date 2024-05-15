@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+   
+<body>
+
+
+    <!-- Find the secounde maximum element -->
+
+    <script>
+        let arr = [33, 43, 54, 65, 23, 232, 43];
+
+        let max = -Infinity;
+        let secondMax = -Infinity;
+
+
+        for (let num of arr) {
+            if (num > max) {
+                secondMax = max;
+                max = num;
+            } else if (num > secondMax && num !== max) {
+                secondMax = num;
+            }
+        }
+
+        console.log("Second highest number ==> ", secondMax);
+
+    </script>
+</body>
+
+</html>

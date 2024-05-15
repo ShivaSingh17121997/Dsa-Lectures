@@ -1,0 +1,29 @@
+<script>
+    // Binary Search Array
+
+    let arr = [3, 2, 8, 4, 56, 6, 7];
+    let sortedArr = arr.sort((a, b) => a - b);
+//  let arr = [2, 3, 4, 6, 7, 8, 56];
+        let target = 7  
+
+        function binarySearch(sortedArr, target) {
+            let left = 0;
+            let right = sortedArr.length;
+
+            while (left <= right) {
+                let mid = Math.floor((left + right) / 2);
+                if (sortedArr[mid] === target) {
+                    return [sortedArr[mid], mid];
+                } else if (sortedArr[mid] < target) {
+                    left = mid + 1;
+                } else {
+                    right = mid - 1;
+                }
+            }
+            return 0; 
+        }
+
+     let Binary=   binarySearch(sortedArr, target);
+     console.log(Binary);
+     
+</script>
