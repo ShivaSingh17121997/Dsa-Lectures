@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<script>
+
+
+    // const ws = new WeakSet();
+
+    // let ram = { name: "ram" }
+    // let ravan = { name: "ravan" }
+    // let laxman = { name: "laxman" }
+    // let bharat = { name: "bharat" }
+    // let satrudhan = { name: "satrudhan" }
+    // // console.log(ws.has("ravan"))
+    // ws.add(ram)
+    // ws.add(ravan)
+    // ws.add(laxman)
+    // ws.add(bharat)
+    // ws.add(satrudhan)
+
+    // ravan = null
+    // bharat = null
+
+    // console.log(ws.has(bharat))
+    // console.log(ws.has("sita"))
+
+    let shyam = { name: "shyam" }
+    let kanhaiya = { name: "krishn" }
+    let kansh = { name: "kansh" }
+
+    let wm = new WeakMap();
+
+    wm.set(shyam, "radha")
+    wm.set(kanhaiya, "rukmani")
+    wm.set(kansh, "kansh")
+
+    wm.delete(kansh)
+
+
+
+    console.log(wm)
+
+    let setNew = new Set()
+    console.log(setNew)
+
+
+</script>
+
+</html>
