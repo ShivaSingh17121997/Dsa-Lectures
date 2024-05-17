@@ -88,41 +88,41 @@
 
 
 
-// function isValidParentheses(s) {
-//     // Create a stack to keep track of opening brackets
-//     const stack = [];
+function isValidParentheses(s) {
+    // Create a stack to keep track of opening brackets
+    const stack = [];
 
-//     // Create a map to store mappings of opening and closing brackets
-//     const bracketMap = {
-//         '(': ')',
-//         '[': ']',
-//         '{': '}'
-//     };
+    // Create a map to store mappings of opening and closing brackets
+    const bracketMap = {
+        '(': ')',
+        '[': ']',
+        '{': '}'
+    };
 
-//     // Iterate through each character in the string
-//     for (let i = 0; i < s.length; i++) {
-//         const char = s[i];
+    // Iterate through each character in the string
+    for (let i = 0; i < s.length; i++) {
+        const char = s[i];
 
-//         // If the character is an opening bracket, push it onto the stack
-//         if (bracketMap[char]) {
-//             stack.push(char);
-//         } else {
-//             // If the character is a closing bracket
-//             // Check if the stack is empty or if the top of the stack does not match the current closing bracket
-//             if (stack.length === 0 || bracketMap[stack.pop()] !== char) {
-//                 return false;
-//             }
-//         }
-//     }
+        // If the character is an opening bracket, push it onto the stack
+        if (bracketMap[char]) {
+            stack.push(char);
+        } else {
+            // If the character is a closing bracket
+            // Check if the stack is empty or if the top of the stack does not match the current closing bracket
+            if (stack.length === 0 || bracketMap[stack.pop()] !== char) {
+                return false;
+            }
+        }
+    }
 
-//     // If the stack is empty after iterating through all characters, the string is valid
-//     return stack.length === 0;
-// }
+    // If the stack is empty after iterating through all characters, the string is valid
+    return stack.length === 0;
+}
 
-// // Test the function
-// const testString1 = "()[]{}"; // Valid string
-// const testString2 = "([)]"; // Invalid string
-// console.log(testString1, "is valid:", isValidParentheses(testString1));
-// console.log(testString2, "is valid:", isValidParentheses(testString2));
+// Test the function
+const testString1 = "()[]{}"; // Valid string
+const testString2 = "([)]"; // Invalid string
+console.log(testString1, "is valid:", isValidParentheses(testString1));
+console.log(testString2, "is valid:", isValidParentheses(testString2));
 
 
