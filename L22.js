@@ -157,3 +157,81 @@
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//////
+
+
+//balenced paranthesis
+
+// let str = "({[]})"
+
+// let stack = [];
+
+// for (let i = 0; i < str.length; i++) {
+//     if (str[i] === "(" || str[i] === "{") {
+//         stack.push(str[i])
+//     }
+//     if (str[i] === ")" || str[i] === "}") {
+//         stack.pop()
+//     }
+// }
+// console.log(stack)
+
+// if (stack.length == 0) {
+//     console.log('Balanced paranthesis')
+// } else {
+//     console.log("not balanced Paranthesis")
+// }
+
+
+
+// reverse the string
+
+
+let str = "ivnatfOrehtorBsIulabab"
+
+let stack = [];
+
+for (i = 0; i < str.length; i++) {
+    stack.push(str[i])
+}
+
+let reverseStr = "";
+while (stack.length > 0) {
+    reverseStr += stack.pop()
+}
+
+
+console.log(reverseStr)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
