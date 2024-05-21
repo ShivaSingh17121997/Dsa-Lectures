@@ -183,62 +183,128 @@
 
 // Queur dAta structure
 
-function QueueData() {
+// function QueueData() {
 
-    let queue = [];
-    //enque : add data from back
+//     let queue = [];
+//     //enque : add data from back
 
-    function enqueue(ele) {
-        queue.push(ele)
+//     function enqueue(ele) {
+//         queue.push(ele)
+//     }
+
+//     // dequeue : remove data from front
+
+//     function dequeue() {
+//         if (queue.length === 0) {
+//             console.log("underflow")
+//         } else {
+//             queue.shift()
+//         }
+
+//     }
+
+//     // peek element : first element of queue
+//     function peek() {
+//         if (queue.length == 0) {
+//             console.log("queue is underflow")
+//         } else {
+//             console.log("Peek element is", queue[0])
+//         }
+//     }
+
+
+//     function print() {
+//         let str = "";
+//         for (let i = 0; i < queue.length; i++) {
+//             str += queue[i] + " "
+//         }
+//         console.log(str)
+//     }
+
+
+
+
+//     return { enqueue, print, dequeue, peek }
+// }
+
+
+
+// let mainFun = QueueData()
+
+// mainFun.enqueue(5)
+// mainFun.enqueue(7)
+// mainFun.enqueue(9)
+// mainFun.enqueue(0)
+// mainFun.enqueue(87)
+
+// mainFun.dequeue()
+// mainFun.peek()
+
+// mainFun.print()
+
+
+
+
+
+// create stack using ques
+
+
+function createStackUsingQueues() {
+    let queue1 = [];
+    let queue2 = [];
+
+    function push(x) {
+        // Add the new element to queue1
+        queue1.push(x);
     }
 
-    // dequeue : remove data from front
-
-    function dequeue() {
-        if (queue.length === 0) {
-            console.log("underflow")
-        } else {
-            queue.shift()
+    function pop() {
+        // Move all elements except the last one from queue1 to queue2
+        while (queue1.length > 1) {
+            queue2.push(queue1.shift());
         }
-
+        // Pop and return the last element from queue1
+        const popped = queue1.shift();
+        
+        // Swap queue1 and queue2
+        [queue1, queue2] = [queue2, queue1];
+        
+        return popped;
     }
 
-    // peek element : first element of queue
-    function peek() {
-        if (queue.length == 0) {
-            console.log("queue is underflow")
-        } else {
-            console.log("Peek element is", queue[0])
+    function top() {
+        // Move all elements except the last one from queue1 to queue2
+        while (queue1.length > 1) {
+            queue2.push(queue1.shift());
         }
+        // Get the last element from queue1
+        const topElement = queue1[0];
+
+        // Move the last element to queue2
+        queue2.push(queue1.shift());
+        
+        // Swap queue1 and queue2
+        [queue1, queue2] = [queue2, queue1];
+        
+        return topElement;
     }
 
-
-    function print() {
-        let str = "";
-        for (let i = 0; i < queue.length; i++) {
-            str += queue[i] + " "
-        }
-        console.log(str)
+    function empty() {
+        return queue1.length === 0;
     }
 
-
-
-
-    return { enqueue, print, dequeue, peek }
+    return { push, pop, top, empty };
 }
 
-
-
-let mainFun = QueueData()
-
-mainFun.enqueue(5)
-mainFun.enqueue(7)
-mainFun.enqueue(9)
-mainFun.enqueue(0)
-mainFun.enqueue(87)
-
-mainFun.dequeue()
-mainFun.peek()
-
-mainFun.print()
+// Example usage:
+const stack = createStackUsingQueues();
+stack.push(1);
+stack.push(2);
+stack.push(3);
+console.log(stack.top());   // Output: 3
+console.log(stack.pop());   // Output: 3
+console.log(stack.empty()); // Output: false
+console.log(stack.pop());   // Output: 2
+console.log(stack.pop());   // Output: 1
+console.log(stack.empty()); // Output: true
 
